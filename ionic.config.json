@@ -1,0 +1,7 @@
+{
+  "name": "Aplikasi Moile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
