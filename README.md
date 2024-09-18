@@ -25,7 +25,4 @@ Setelah nilai dimasukkan, tekan tombol **=** pada keypad untuk melihat hasil kon
 Jika ingin menghapus input yang telah dimasukkan, tekan tombol **C** pada keypad untuk mengosongkan kolom input.
 
 ## Screenshot Aplikasi
-[ezgif com-optimize](https://github.com/user-attachments/assets/73947941-3a58-468a-8086-9d4dbf6967b1)
-
-
-
+![Untitled design](https://github.com/user-attachments/assets/9308e62d-7102-4e0e-a87c-59bd2bfe2ddb)
