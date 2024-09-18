@@ -1,119 +1,107 @@
-ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+ion-toolbar {
+  --background: #e69232;
+  --color: rgb(255, 255, 255);
+  --min-height: 70px;
+  --padding: 0;
+  --margin: 0;
 }
 
-ion-menu.md ion-content {
-  --padding-start: 8px;
-  --padding-end: 8px;
-  --padding-top: 20px;
-  --padding-bottom: 20px;
+.subtitle-toolbar {
+  --min-height: 40px; /* Mengurangi tinggi minimum toolbar */
+  --height: 40px; /* Menetapkan tinggi toolbar */
 }
 
-ion-menu.md ion-list {
-  padding: 20px 0;
+.small-box {
+  border: 2px solid #ffae52; /* Warna dan ketebalan border */
+  padding: 13px; /* Ukuran padding lebih kecil */
+  border-radius: 8px; /* Membuat sudut border melengkung */
+  margin: 14px; /* Mengatur jarak antar kotak */
+  width: 100%; /* Membuat kotak sesuai dengan kolom ion-col */
 }
 
-ion-menu.md ion-note {
-  margin-bottom: 30px;
+ion-select {
+  font-size: 0.9rem; /* Memperkecil ukuran teks di dalam ion-select */
 }
 
-ion-menu.md ion-list-header,
-ion-menu.md ion-note {
-  padding-left: 10px;
+/* CSS */
+.custom-input {
+  font-size: 1.5rem; /* Ukuran font lebih besar */
+  text-align: center; /* Memusatkan teks */
+  border: 2px solid #ffae52; /* Border dengan warna dan ketebalan */
+  border-radius: 8px; /* Sudut border melengkung */
+  padding: 10px; /* Padding di dalam input */
 }
 
-ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-background-color-step-150, #d7d8da);
+/* Jika menggunakan Shadow DOM, gunakan ::ng-deep */
+::ng-deep .custom-input {
+  font-size: 1.5rem; /* Ukuran font lebih besar */
+  text-align: center; /* Memusatkan teks */
+  border: 2px solid #ffae52; /* Border dengan warna dan ketebalan */
+  border-radius: 8px; /* Sudut border melengkung */
+  padding: 10px; /* Padding di dalam input */
 }
 
-ion-menu.md ion-list#inbox-list ion-list-header {
-  font-size: 22px;
-  font-weight: 600;
-
-  min-height: 20px;
+ion-button {
+  --background: #ffffff; /* Latar belakang tombol default */
+  --background-activated: #ffae52; /* Latar belakang saat ditekan */
+  --background-focused: #ffae52; /* Latar belakang saat tombol mendapatkan fokus */
+  --color: #ffae52; /* Warna teks tombol default */
+  --border-radius: 8px; /* Sudut melengkung tombol */
+  --border: 2px solid #ffae52; /* Border tombol */
+  height: 60px; /* Tinggi tombol */
+  width: 60px; /* Lebar tombol */
+  font-size: 1.2rem; /* Ukuran font pada tombol */
 }
 
-ion-menu.md ion-list#labels-list ion-list-header {
-  font-size: 16px;
-
-  margin-bottom: 18px;
-
-  color: #757575;
-
-  min-height: 26px;
+ion-button:active {
+  --background: #ffae52; /* Latar belakang tombol saat ditekan */
+  --color: #ffffff; /* Warna teks tombol saat ditekan */
+  --border: 2px solid #ffae52; /* Border tombol saat ditekan */
 }
 
-ion-menu.md ion-item {
-  --padding-start: 10px;
-  --padding-end: 10px;
-  border-radius: 4px;
+/* Untuk mengatasi tema default Ionic */
+ion-button::part(native) {
+  border: 2px solid #ffae52; /* Border tombol */
+  background-color: #ffffff; /* Latar belakang default */
 }
 
-ion-menu.md ion-item.selected {
-  --background: rgba(var(--ion-color-primary-rgb), 0.14);
+ion-button::part(native):active {
+  background-color: #ffae52; /* Latar belakang saat ditekan */
+  color: #ffffff; /* Warna teks saat ditekan */
 }
 
-ion-menu.md ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+
+.result-display {
+  text-align: center; /* Memusatkan teks */
+  padding: 13px; /* Sama dengan padding small-box */
+  margin: 14px 0; /* Sama dengan margin top dan bottom small-box */
 }
 
-ion-menu.md ion-item ion-icon {
-  color: #616e7e;
+.result-display h3 {
+  color: #ffae52; /* Warna hijau lebih gelap untuk judul */
+  margin-bottom: 8px; /* Jarak bawah judul */
 }
 
-ion-menu.md ion-item ion-label {
-  font-weight: 500;
+.result-display p {
+  font-size: 1.2rem; /* Ukuran font untuk hasil */
+  font-weight: bold; /* Font tebal untuk hasil */
+  color: #ffae52; /* Warna teks hasil */
 }
 
-ion-menu.ios ion-content {
-  --padding-bottom: 20px;
+.calculator {
+  justify-content: center;
 }
 
-ion-menu.ios ion-list {
-  padding: 20px 0 0 0;
+.button-col {
+  display: flex;
+  justify-content: center;
 }
 
-ion-menu.ios ion-note {
-  line-height: 24px;
-  margin-bottom: 20px;
+.result-row {
+  justify-content: center;
 }
 
-ion-menu.ios ion-item {
-  --padding-start: 16px;
-  --padding-end: 16px;
-  --min-height: 50px;
+.result-col {
+  text-align: center;
 }
 
-ion-menu.ios ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
-}
-
-ion-menu.ios ion-item ion-icon {
-  font-size: 24px;
-  color: #73849a;
-}
-
-ion-menu.ios ion-list#labels-list ion-list-header {
-  margin-bottom: 8px;
-}
-
-ion-menu.ios ion-list-header,
-ion-menu.ios ion-note {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-ion-menu.ios ion-note {
-  margin-bottom: 8px;
-}
-
-ion-note {
-  display: inline-block;
-  font-size: 16px;
-
-  color: var(--ion-color-medium-shade);
-}
-
-ion-item.selected {
-  --color: var(--ion-color-primary);
-}

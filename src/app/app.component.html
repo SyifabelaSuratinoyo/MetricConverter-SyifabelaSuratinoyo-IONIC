@@ -1,29 +1,119 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
-      <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi&#64;ionicframework.com</ion-note>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title style="font-size: 1.3rem;">Metric Converter</ion-title>
+    </ion-toolbar>
+    <ion-toolbar class="subtitle-toolbar">
+      <ion-title style="font-size: 0.7rem;">By: Syifabela Suratinoyo</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
+  <ion-content class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-text>
+            <h2>Selamat datang di Aplikasi Konversi Metrik!</h2>
+          </ion-text>
+        </ion-col>
+      </ion-row>
 
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
+      <ion-row>
+        <ion-col size="11" class="small-box">
+          <ion-label>Pilih Metrik:</ion-label>
+          <ion-select placeholder="Pilih Metrik" (ionChange)="updateUnits($event)">
+            <ion-select-option value="length">Panjang</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
 
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon aria-hidden="true" slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
+      <ion-row>
+        <ion-col size="5" class="small-box">
+          <ion-label>Dari:</ion-label>
+          <ion-select placeholder="--Pilih Satuan--" [(ngModel)]="fromUnit" [disabled]="!unitsAvailable">
+            <ion-select-option *ngFor="let unit of availableUnits" [value]="unit">{{ unit }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      
+        <ion-col size="5" class="small-box">
+          <ion-label>Ke:</ion-label>
+          <ion-select placeholder="--Pilih Satuan--" [(ngModel)]="toUnit" [disabled]="!unitsAvailable">
+            <ion-select-option *ngFor="let unit of availableUnits" [value]="unit">{{ unit }}</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-input
+            type="number"
+            placeholder="Masukkan nilai"
+            [(ngModel)]="inputValue"
+            (ionInput)="convert()"
+            [disabled]="!unitsAvailable"
+            readonly
+            class="custom-input"
+          ></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="calculator">
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(1)">1</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(2)">2</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(3)">3</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="calculator">
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(4)">4</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(5)">5</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(6)">6</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="calculator">
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(7)">7</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(8)">8</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button  (click)="appendNumber(9)">9</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="calculator">
+        <ion-col size="3">
+          <ion-button (click)="clear()">C</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="appendNumber(0)">0</ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button (click)="convert()">=</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-text *ngIf="result !== null" class="result-display">
+            <h3>Hasil Konversi:</h3>
+            <p> {{ result }} {{ toUnit }} </p>
+          </ion-text>
+        </ion-col>
+      </ion-row>      
+
+    </ion-grid>
+  </ion-content>
 </ion-app>
